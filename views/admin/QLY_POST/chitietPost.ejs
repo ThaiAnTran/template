@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--header-->
+ 
+ 
+<%- include("../Util/header.ejs") %>
+    <!--End Header-->
+
+    <body id="page-top">
+         
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include("../Util/menu.ejs") %>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content" class="container">
+
+                        <!-- Topbar -->
+                        <%- include("../Util/topbar.ejs") %>
+                            <!-- End of Topbar -->
+                                <style>
+                                    .widget-donation {
+                                        background: #fff;
+                                        box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+                                        border: 1px solid #e0e0e0;
+                                        border-radius: 10px;
+                                        overflow: hidden;
+                                        padding: 25px 30px;
+                                        max-width: 100%;
+                                        color: #757575;
+                                    }
+                                    .campaign-money {
+                                        margin-bottom: 5px;
+                                        position: relative;
+                                        top: -4px;
+                                    }
+                                    .campaign-progress {
+                                        display: flex;
+                                        height: 7px;
+                                        overflow: hidden;
+                                        line-height: 0;
+                                        font-size: .75rem;
+                                        background-color: #e9ecef;
+                                        border-radius: 100px;
+                                    }
+                                    .sm-gutters {
+                                        margin-right: -8px;
+                                        margin-left: -8px;
+                                    } 
+                                    .widget-donation .sub {
+                                        font-size: 15px;
+                                        display: inline-block;
+                                    }
+                                    .text-gray-900 {
+                                        color: #212121!important;
+                                    }
+                                    .widget-donation .value {
+                                        font-size: 1.46667rem;
+                                        font-weight: 700;
+                                        font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+                                    }
+                                    .campaign-progress-bar{
+                                        float: left;
+                                        width: 0;
+                                        height: 100%;
+                                        font-size: 12px;
+                                        line-height: 20px;
+                                        color: #fff;
+                                        text-align: center;
+                                        background-color: #337ab7;
+                                        -webkit-box-shadow: inset 0 -1px 0 rgb(0 0 0 / 15%);
+                                        box-shadow: inset 0 -1px 0 rgb(0 0 0 / 15%);
+                                        -webkit-transition: width .6s ease;
+                                        -o-transition: width .6s ease;
+                                        transition: width .6s ease;
+                                    }
+                                </style>
+                            <!--Nội dung chính-->
+                            <div class="row">
+                                <div class="col-sm-6" > 
+                                    <div class="alert alert-primary" style="width: 400px;">
+                                        <h3>Chi tiết bài viết</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" > 
+                                    <div style="width: 550px;  "> 
+                                        &ensp;&ensp;
+                                        <a class="btn btn-primary" href="/admin/ThemPost" >Tạo mới</a>
+                                        <a class="btn btn-success" href="/admin/formSuaPost?IdPost=<%= post[0].IdPost %> " >Sửa</a>
+                                        <button class="btn btn-danger" onclick="goBack()">Trở lại</button>
+                                    </div>
+                                </div> 
+                            </div>
+                            <hr class="sidebar-divider">
+                            <!-- Roitation Utilities -->
+                            <section class="bg-white sc-content">
+                                <div class="container">
+                                    <div class="row align-content-around">
+                                        <div class="col-12 col-lg-7 order-2 order-lg-1 sticky-content">
+                                            <div class="theiaStickySidebar">
+                                                <div class="" id="cauchuyen">
+                                                    <div class="donation__detail__heading">
+                                                        <h2 class="fw-600 m-0 h4">Câu chuyện</h2>
+                                                    </div>
+                                                    <article class="img-set-max">
+                                                        <p>
+                                                            <strong><%= post[0].Title %> </strong>
+                                                        </p>
+                
+                                                        <p>
+                                                            <%= post[0].Content %> 
+                                                        </p> 
+                
+                                                        <p>
+                                                            <img id="blah" src="./images/supported_object/<%= SO[0].Image %>" class="rounded "  width="500px" alt="Chưa chọn hình" />
+                                                 
+                                                        </p>
+                
+                                                    </article>
+                                                </div> 
+                                            </div>
+                                        </div> 
+                                        <div class="col-12 col-lg-5 order-1 order-lg-2 sticky-sidebar">
+                                            <div class="theiaStickySidebar">
+                                                <div class="quyengop-sticky">
+                                                    <div class="widget-donation pb-0 pb-lg-4">
+                                                        <h2 class="mb-4 text-gray-900 d-none d-md-block h4">Thông tin quyên góp</h2>
+                                                        <div class="campaign-money">
+                                                            <strong class="value text-gray-900 fs-24">111 </strong>
+                                                            quyên góp /
+                                                            <div class="sub">
+                                                                <%= post[0].Total_Amount+" .VNĐ" %>
+                                                            </div>
+                                                        </div>  
+                                                        <div class="campaign-progress">
+                                                            <div class="campaign-progress-bar" style="width:40%;"></div>
+                                                        </div>
+                
+                                                        <div class="row sm-gutters justify-content-between widget-donation-meta mt-3">
+                                                            <div class="col-auto">
+                                                                <div class="">
+                                                                    Lượt quyên góp
+                                                                </div>
+                                                                <div class="text-gray-900 font-weight-bold">
+                                                                    42.263
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-auto">
+                                                                <div class="text-center">
+                                                                    Đạt được
+                                                                </div>
+                                                                <div class="text-gray-900 font-weight-bold text-center">
+                                                                    42.91%
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="col-auto">
+                                                                <div class="">
+                                                                    Thời hạn còn
+                                                                </div>
+                                                                <div class="text-gray-900 font-weight-bold">
+                                                                    34 Ng&#xE0;y
+                                                                </div>
+                                                            </div>
+                                                        </div> 
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--/Nội dung chính-->
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <%- include("../Util/footer.ejs") %>
+                        <!-- End of Footer -->
+
+                </div>
+                <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="/admin/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+        <!--  Tìm kiếm nhanh -->
+        <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+        </script>
+        <!--xemchi tiét-->
+       
+            <script>
+                $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+                });
+            </script>
+    </body>
+
+</html>

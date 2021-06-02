@@ -1,0 +1,86 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<div class="container">
+
+    <div class="form-group">
+
+        <label for="sel1">Select Tỉnh/ Thành Phố:</label>
+        <select class="form-control" name="tinh" id="sel1" onchange="validateSelect_Tinh(event)">
+            <option></option>
+            <% for (let i=0; i < mapVN.length; i++) { const element=mapVN[i]; %>
+                <option value="<%= element.id %>">
+                    <%= element.name %>
+                </option>
+                <% } %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Quan">Select Quận/Huyện:</label>
+        <select class="form-control" name="Quan" id="huyen" onchange="validateSelect_Huyen(event)" >
+            
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Phuong">Select Phường /Xã:</label>
+        <select class="form-control" name="" id="Phuong">
+            <option value=""></option>
+        </select>
+    </div>
+</div>
+
+<script>
+    function validateSelect_Tinh(evt) {
+        let valueselect = evt.target.value;
+
+        let huyenshow = document.getElementById('huyen');
+        
+        $.ajax({
+            method:'get',
+            url:'/admin/GetDistricts',
+            data:{
+               idtinh: valueselect
+            },
+            success: function(data){
+              huyenshow.innerHTML = '';
+              for (let i = 0; i < data.length; i++) {
+                huyenshow.innerHTML += `<option value='${data[i].id}'>${data[i].name}</option>`;
+              }
+              
+            },
+            error: function(){
+
+            }
+        })
+
+    }
+    function validateSelect_Huyen(evt) {
+        let valueselect = evt.target.value;
+        let valuetinh = $('#sel1').val();
+        let xashow = document.getElementById('Phuong');
+        $.ajax({
+            method:'GET',
+            url:'/admin/GetPhuong',
+            data:{
+               idhuyen: valueselect,
+               idtinh: valuetinh
+            },
+            success: function(data){
+                xashow.innerHTML="";
+                for (let i = 0; i < data.length; i++) {
+                   xashow.innerHTML += `<option>${data[i].name}</option>`;
+               }
+            },
+            error: function(){
+
+            }
+        })
+
+    }
+
+</script>

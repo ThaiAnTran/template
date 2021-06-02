@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--header-->
+<%- include("../Util/header.ejs") %>
+    <!--End Header-->
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include("../Util/menu.ejs") %>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content" class="container">
+
+                        <!-- Topbar -->
+                        <%- include("../Util/topbar.ejs") %>
+                            <!-- End of Topbar -->
+
+                            <!--Nội dung chính-->
+                            <div class="row">
+                                <div class="col-sm-6"  >
+                                    <div class="alert alert-primary" style="width: 400px;">
+                                        <h3>Tạo đối tượng bài viết</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" >
+                                    <div  >
+                                        <% if(message){%>
+                                            <lable class="alert alert-success" style="color: rgb(24, 13, 247); width: 300px;   text-align: center;">
+                                                <%= message %>
+                                            </lable>
+                                        <% } %> 
+                                        &ensp;&ensp;
+                                        <button class="btn btn-danger" onclick="goBack()">Trở lại</button>
+                                    </div>
+
+                                </div>
+                              </div> 
+                            <hr class="sidebar-divider">
+                            <div class="card-header py-3"  >
+                                <h6 class="m-0 font-weight-bold text-danger">Thông tin chi tiết bài viết:</h6>
+                            </div>
+                            <!-- Roitation Utilities -->
+                            <div class="container-fluid">
+
+                                <form action="/admin/xulySuaPost" method="POST" class="needs-validation" novalidate>
+                                    <div class="row">
+                                        <!--Lựa chọn đối tượng-->
+                                        <div class="col-sm-6">
+                                             
+                                            <div class="form-group">
+                                                <label class="m-0 font-weight-bold text-black" for="so">Mã bài viết:</label>
+                                                <input class="form-control" style="background-color: chartreuse;" type="text" value="<%= post[0].IdPost %> " name="idpost" readonly="readonly">
+                                            </div>
+                                            <div id="thongtin">
+
+                                                <!-- hiển thị thông tin đối tượng -->
+                                                <label class="m-0 font-weight-bold text-black" for="">Thông tin đối tượng</label>
+                                                <label class="form-inline" for="ht"><h6>Họ tên:</h6>&emsp;<h5> <%= SO[0].NameSO %> </h5></label>
+                                                <label class="form-inline" for="dc"><h6>Địa chỉ:</h6>&emsp;<h5> <%= SO[0].Address+', '+SO[0].Commune+', '+SO[0].Dicstrict+', '+SO[0].Province %> </h5></label>
+                                                
+                                            </div>
+                                            <div id="img">
+                                                <!-- hiển thị ảnh -->
+                                                <img class="rounded"  src="./images/supported_object/<%= SO[0].Image%> " style="width:350px;height: 350px;" alt="hình không có" >
+                                            </div>
+                                        </div>
+                                        <!--Viết nội dung bài viết-->
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="m-0 font-weight-bold text-black" for="">Tiêu đề:</label>
+                                                <input class="form-control" type="text" value="<%= post[0].Title %>" name="tieude" id="tieude" required>
+                                                <div class="valid-feedback">Valid.</div>
+                                                <div class="invalid-feedback">Vui lòng điền Tiêu đề.</div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="m-0 font-weight-bold text-black" for="">Nội dung:</label>
+                                                <div>
+                                                    <textarea id="nd" name="noidung" class="form-control" rows="14" cols="50" required><%= post[0].Content %> </textarea>
+                                                    <div class="valid-feedback">Valid.</div>
+                                                    <div class="invalid-feedback">Vui lòng nhập nội dung bài viết.</div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"  >
+                                                    <label class="m-0 font-weight-bold text-black" for="">Số tiền cần:</label>
+                                                    <input class="form-control" type="number" name="tien"  style="width: 80%;" min="0" max="500000000" value="<%= post[0].Total_Amount %>"  required>
+                                                    <p style="float: right; margin-top:-20px ;">.VNĐ </p>  
+                                                    <div class="valid-feedback">Valid.</div>
+                                                    <div class="invalid-feedback">Vui lòng cho biết giá trị tối đa.</div>
+                                                </div> 
+                                                <div class="col" >
+                                                    <label class="m-0 font-weight-bold text-black" for="">Ngày kết thúc:</label>
+                                                    
+                                                    <input class="form-control" type="datetime-local" name="EndDate" value="<%= post[0].EndDate %>"   required> 
+                                                    <div class="valid-feedback">Valid.</div>
+                                                    <div class="invalid-feedback">Vui lòng cho biết ngày kết thúc.</div>
+                                                </div> 
+                                            </div>
+
+                                             
+                                            <br>
+                                            <input type="submit" id="submit" name="submit" value="Update " class="btn btn-success">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!--/ Roitation Utilities -->
+                            <div>
+
+                            </div>
+                            <!--/Nội dung chính-->
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+                    <%- include("../Util/footer.ejs") %>
+                        <!-- End of Footer -->
+
+                </div>
+                <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="/admin/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+
+        <!--Kiểm tả đối tượng -->
+        <script>
+            function validateSelect_SO(evt) {
+                let valueselect = evt.target.value;
+
+                let Select_SO = document.getElementById("thongtin");
+                let SelectIMG = document.getElementById("img");
+
+                $.ajax({
+                    method: 'get',
+                    url: '/admin/GetSO',
+                    data: {
+                        idSO: valueselect
+                    },
+                    success: function(data) {
+
+                        Select_SO.innerHTML = '';
+                        SelectIMG.innerHTML = '';
+                        for (let i = 0; i < data.length; i++) {
+                            Select_SO.innerHTML += `<label class="m-0 font-weight-bold text-black" for="">Thông tin đối tượng</label>
+                                        <label class="form-inline" for="ht"><h6>Họ tên:</h6>&emsp;<h5>${data[i].FirstName} ${data[i].LastName}</h5></label>
+                                        <label class="form-inline" for="dc"><h6>Địa chỉ:</h6>&emsp;<h5>${data[i].Address}, ${data[i].Commune}, ${data[i].Dicstrict}, ${data[i].Province}</h5></label>
+                                        `;
+                            SelectIMG.innerHTML += `<img   src="./images/supported_object/${data[i].Image}" style="width:300px;height: 300px;" alt="hình không có" >`;
+                        }
+
+                    },
+                    error: function() {
+
+                    }
+                })
+
+            }
+        </script>
+        <!--Kiểm tra rỗng khi nhập -->
+        <script>
+            // Disable form submissions if there are invalid fields
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    // Get the forms we want to add validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+
+    </body>
+
+</html>
