@@ -12,7 +12,7 @@ const mapVietNam = require('../diachivietnam.json');
 
 // sử dụng public/ body-parser 
 route.use(flash());
-route.use(express.static("public/backend"));
+route.use(express.static("public/"));
 route.use(express.json());
 route.use(express.urlencoded({
     extended: true
@@ -33,7 +33,7 @@ route.use(session({
 // lưu hình ảnh vào folder
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, './public/backend/images/supported_object')
+        cb(null, './public/image/supported_object')
     },
     filename: function(req, file, cb) {
         cb(null, file.originalname)
@@ -289,11 +289,11 @@ route.post("/themDoituong", upload.single('hinh'), function(req, res) {
         let xa = huyen[0].wards.filter((el)=>el.id===req.body.xa);
         let nameXa=xa[0].name;
         console.log("xã:"+nameXa+", Huyện: "+nameHuyen+", Tỉnh:"+nameTinh);
-        let hinh = "";
         // lấy thông tin admin
         let admin = req.cookies.boss;
         let IdEmployee = admin[0].IdEmployee;
         // kiểm tra và gán file
+        let hinh = "";
         if (req.file) {
             hinh = req.file.originalname;
             //console.log('Uploaded:', req.file);
@@ -449,6 +449,7 @@ route.get("/DanhsachPost",(req,res)=>{
                            , DATE_FORMAT(post.EndDate, '%Y-%m-%d %H:%m:%s') AS 'EndDate'
                            , post.Title, post.Content
                            , post.Status
+                           , post.Image
                            , FORMAT(post.Total_Amount, 0) AS 'Total_Amount'
                            , post.LikePost
                            , post.IdSO
@@ -505,6 +506,7 @@ route.get("/formSuaPost",(req,res)=>{
                 , DATE_FORMAT(post.EndDate, '%Y-%m-%dT%H:%m:%s') AS 'EndDate'
                 , post.Title, post.Content
                 , post.Status
+                , post.Image
                 , post.Total_Amount 
                 , post.LikePost
                 , post.IdSO
@@ -563,6 +565,7 @@ route.get("/xemchitietPost",(req,res)=>{
                     , FORMAT(post.Total_Amount, 0) AS 'Total_Amount'
                     , post.LikePost
                     , post.IdSO
+                    , post.Image
                     , post.IdEmployee 
                 FROM post  where IdPost=${idpost}`;
     conn.query(que,(err,result)=>{
@@ -587,12 +590,19 @@ route.post("/xulyThemPost", (req, res) => {
         let EndDate = req.body.EndDate;
         console.log(EndDate);
         let IdEmployee =  req.cookies.boss[0].IdEmployee;
-        let sql = ` INSERT INTO post(CreateDate, Title,Content, Status, LikePost, IdSO,IdEmployee,Total_Amount,EndDate)
-        VALUES (Now(),'${tieude}','${noidung}','1','0','${idSO}','${IdEmployee}','${tien}','${EndDate}')`;
-        conn.query(sql,(err,result)=>{
+        let hinh = "";
+        let sql_hinh=`SELECT Image FROM supported_object WHERE IdSO=${idSO}`;
+        conn.query(sql_hinh,(err,result)=>{
             if(err) console.log(err);
-            return res.redirect("/admin/DanhsachPost?msg=1" )
-        })
+            hinh = result[0].Image;
+             
+            let sql = ` INSERT INTO post(CreateDate, Title,Content, Status, LikePost, IdSO,IdEmployee,Total_Amount,EndDate,Image)
+            VALUES (Now(),'${tieude}','${noidung}','1','0','${idSO}','${IdEmployee}','${tien}','${EndDate}','${hinh}')`;
+            conn.query(sql,(err,result)=>{
+                if(err) console.log(err);
+                return res.redirect("/admin/DanhsachPost?msg=1" )
+            })
+        }) 
 })
 //// xử lý cập nhật bài viết
 route.post("/xulySuaPost",(req,res)=>{

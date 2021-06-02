@@ -9,7 +9,7 @@ const session = require("express-session");
 var cookieParser = require('cookie-parser');
 
 // sử dụng public/ body-parser 
-route.use(express.static("public/frontend"));
+route.use(express.static("public/"));
 route.use(express.json());
 route.use(express.urlencoded({
   extended: true
@@ -20,7 +20,39 @@ route.get("/",(req,res)=>{
     res.render("User/index.ejs");
 })
 route.get("/index",(req,res)=>{
-  res.render("User/index.ejs");
+  let today = new Date();
+  var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+  let sql =`SELECT post.IdPost
+                    , DATE_FORMAT(post.CreateDate, '%Y-%m-%d %H:%m:%s') AS 'CreateDate'
+                    , DATEDIFF( DATE_FORMAT(post.EndDate, '%Y/%m/%d'), '${date}' ) AS 'songay' 
+                    , post.Title
+                    , post.Content 
+                    , post.Status 
+                    , post.Image 
+                    , post.Total_Amount
+                    , FORMAT(post.Total_Amount, 0) AS 'Total_money' 
+                    , post.LikePost 
+                    , post.IdSO 
+                    , post.IdEmployee
+                    , FORMAT((SELECT SUM(donater.Amount) FROM donater WHERE donater.IdPost=post.IdPost),0)as sumMoney
+                    , (SELECT SUM(donater.Amount) FROM donater WHERE donater.IdPost=post.IdPost) as sumAmount
+                    from post   where Status=1`;
+  conn.query(sql,(err,result)=>{
+    if(err)
+    {
+       console.log(err);
+    }
+    else{ 
+      let post = result;
+      
+      return res.render("User/index.ejs",{
+            post: result
+          });
+         
+      } 
+      
+    
+  })
 })
 /// đăng ký
 route.get("/dangky",(req,res)=>{
@@ -114,7 +146,12 @@ route.post("/xulyDangNhap",(req,res)=>{
 })
 
 
-
+route.get("/test",(req,res)=>{
+  let today = new Date();
+  var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+  console.log(date);
+  
+})
 
 //////////// EXPORTs
 module.exports = route;
