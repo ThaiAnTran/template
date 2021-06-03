@@ -1,712 +1,416 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <title>About | Charity / Non-profit responsive Bootstrap HTML5 template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+<head>
+    <meta charset="utf-8">
+    <title>Chi tiết bài viết</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootsrap -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
 
-        <!-- Font awesome -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="frontend/css/bootstrap.min.css">
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="frontend/css/chitietpost.min.css">
 
-        <!-- Template main Css -->
-        <link rel="stylesheet" href="css/style.css">
-        
-        <!-- Modernizr -->
-        <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="frontend/css/font-awesome.min.css">
+
+    <!-- Template main Css -->
+    <link rel="stylesheet" href="frontend/css/style.css">
+
+    <!-- Modernizr -->
+    <script src="frontend/js/modernizr-2.6.2.min.js"></script>
 
 
-    </head>
-    <body>
+</head>
+
+<body>
     <!-- NAVBAR
     ================================================== -->
 
-    <header class="main-header">
-        
-    
-        <nav class="navbar navbar-static-top">
-
-            <div class="navbar-top">
-
-              <div class="container">
-                  <div class="row">
-
-                    <div class="col-sm-6 col-xs-12">
-
-                        <ul class="list-unstyled list-inline header-contact">
-                            <li> <i class="fa fa-phone"></i> <a href="tel:">+212 658 986 213 </a> </li>
-                             <li> <i class="fa fa-envelope"></i> <a href="mailto:contact@sadaka.org">contact@sadaka.org</a> </li>
-                       </ul> <!-- /.header-contact  -->
-                      
-                    </div>
-
-                    <div class="col-sm-6 col-xs-12 text-right">
-
-                        <ul class="list-unstyled list-inline header-social">
-
-                            <li> <a href="#" target="_blank"> <i class="fa fa-facebook"></i> </a> </li>
-                            <li> <a href="#" target="_blank"> <i class="fa fa-twitter"></i>  </a> </li>
-                            <li> <a href="#" target="_blank"> <i class="fa fa-google"></i>  </a> </li>
-                            <li> <a href="#" target="_blank"> <i class="fa fa-youtube"></i>  </a> </li>
-                            <li> <a href="#" target="_blank"> <i class="fa fa fa-pinterest-p"></i>  </a> </li>
-                       </ul> <!-- /.header-social  -->
-                      
-                    </div>
-
-
-                  </div>
-              </div>
-
-            </div>
-
-            <div class="navbar-main">
-              
-              <div class="container">
-
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-
-                  </button>
-                  
-                  <a class="navbar-brand" href="index.html"><img src="images/sadaka-logo.png" alt=""></a>
-                  
-                </div>
-
-                <div id="navbar" class="navbar-collapse collapse pull-right">
-
-                  <ul class="nav navbar-nav">
-
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a class="is-active"  href="about.html">ABOUT</a></li>
-                    <li class="has-child"><a href="#">CAUSES</a>
-
-                      <ul class="submenu">
-                         <li class="submenu-item"><a href="causes.html">Causes list </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                      </ul>
-
-                    </li>
-                    <li><a href="gallery.html">GALLERY</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-
-                  </ul>
-
-                </div> <!-- /#navbar -->
-
-              </div> <!-- /.container -->
-              
-            </div> <!-- /.navbar-main -->
-
-
-        </nav> 
-
+    <header class="main-header"> 
+        <%- include("../Util/header.ejs") %>
     </header> <!-- /. main-header -->
 
 
-	<div class="page-heading text-center">
+    <div class="section-home our-causes animate-onscroll fadeIn">
 
-		<div class="container zoomIn animated">
-			
-			<h1 class="page-title">ABOUT US <span class="title-under"></span></h1>
-			<p class="page-description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit Necessitatibus.
-			</p>
-			
-		</div>
+            <section class="bg-white sc-content" style="transform: none;">
+                <div class="container" style="transform: none;">
+                    <div class="row align-content-around" style="transform: none;">
+                        <div class="col-12 col-lg-7 order-2 order-lg-1 sticky-content">
+                            <div class="theiaStickySidebar">
+                                <div class="" id="cauchuyen">
+                                    <div class="donation__detail__heading">
+                                        <h2 class="fw-600 m-0 h4">Câu chuyện</h2>
+                                    </div> 
+                                    <article class="img-set-max">
+                                        <p>
+                                            <strong>Điểm trường được dựng từ một trăm miếng ván mục nát</strong>
+                                        </p>
 
-	</div>
+                                        <p>
+                                            <img alt=""
+                                                src="https://static.mservice.io/blogscontents/momo-upload-api-210531141614-637580673740329119.jpg"
+                                                style="width: 100%;">
+                                        </p>
 
-	<div class="main-container">
+                                        <p style="text-align: center;">
+                                            <em>Các em chăm chỉ học tập trong lớp học hoang sơ</em>
+                                        </p>
 
-		<div class="container">
+                                        <p>
+                                            <strong>Chung dựng trường kiên cố tặng 25 em học sinh Huổi Chua</strong>
+                                        </p>
 
-			<div class="row fadeIn animated">
+                                        <p>
+                                            Thấu hiểu được những vất vả, thiếu thốn của các em học sinh bản Huổi Chua, Heo Đất
+                                            MoMo đã phối hợp cùng Trung tâm Tình Nguyện Quốc Gia, Dự án Sức mạnh 2000 và Dự án
+                                            Nuôi Em lên kế hoạch xây mới ngôi trường với 02 phòng học, và 01 phòng công vụ, nhằm
+                                            tiếp thêm động lực giúp thầy trò điểm trường vượt khó vươn lên, nâng cao chất lượng
+                                            dạy và học.
+                                        </p>
 
-				<div class="col-sm-8"> 
-					<img src="images/about-us.jpg" alt="" class="img-thumbnail  ">   
-					<h2 class="title-style-2">ABOUT SADAKA <span class="title-under"></span></h2>
+                                        <p>
+                                            Để làm được điều này, chúng tôi dự tính dự án cần tổng số tiền là 330,000,000 đồng.
+                                            Hiện nay, nhà tài trợ tổ chức và cộng đồng địa phương đã cam kết tài trợ 210,000,000
+                                            đồng cho dự án. Chúng tôi mong muốn có thể gây quỹ thêm 120,000,000 đồng trên Trái
+                                            tim Momo giúp mái trường mới sớm được khởi công xây dựng.
+                                        </p>
 
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, nulla quae possimus id fugit totam perspiciatis ad consequatur natus dolores unde ipsa, architecto, dignissimos corrupti explicabo provident debitis suscipit, beatae!
-					</p>
+                                        <p>
+                                            Bất kể số tiền nào đều là đáng quý, bất cứ đóng góp nào cũng đều là đáng trân trọng.
+                                            Mọi sự đóng góp của bạn đều sẽ góp phần giúp các em nhỏ bản Huổi Chua an toàn, học
+                                            hành trong một ngôi trường mới. Hãy chung tay cùng MoMo ngay!
+                                        </p>
 
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi pariatur, voluptatum molestiae voluptas ducimus tempora numquam eligendi quos, quia aut quidem et, odio deleniti amet natus accusamus fugit! Temporibus, tenetur.
-					</p>
+                                        <p>
+                                            <em>*Sau khi hoàn thành chiến dịch kêu gọi quyên góp, MoMo sẽ tiến hành gửi toàn bộ
+                                                số tiền 120,000,000 đồng gây quỹ tới Trung tâm tình nguyên Quốc gia để xây 02
+                                                phòng học, và 01 phòng công vụ cho điểm trường Huổi Chua. Chúng tôi sẽ cập nhật
+                                                thêm thông tin về tiến độ dự án đến quý vị trong thời gian sớm
+                                                nhất.&nbsp;&nbsp;</em>
+                                        </p>
 
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptatem, ea, quisquam vero ullam nesciunt recusandae expedita similique nisi! Ducimus, reiciendis, quia. Explicabo minima error excepturi minus, aperiam illum fugit.
-					</p>
+                                        <p>
+                                            <em>(Tổng kinh phí xây trường mới là 330.000.000 vnđ, trong đó 210.000.000 vnđ được
+                                                Nhà tài trợ quy đổi sau khi gom đủ Heo Vàng và 120.000.000 vnđ là số tiền quyên
+                                                góp thông qua Trái Tim MoMo)&nbsp;</em>
+                                        </p>
 
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi pariatur, voluptatum molestiae voluptas ducimus tempora numquam eligendi quos, quia aut quidem et, odio deleniti amet natus accusamus fugit! Temporibus, tenetur.
-					</p>
+                                        <div>
+                                            <table border="1" cellpadding="5" cellspacing="0" style="width:100%;">
+                                                <colgroup>
+                                                    <col>
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <p>
+                                                                <u><strong>Về Trung tâm Tình nguyện Quốc gia:</strong></u><br>
+                                                                Trung tâm Tình nguyện Quốc gia (VVC) do TW Đoàn TNCS Hồ Chí Minh
+                                                                thành lập, là tổ chức cấp Quốc gia nhằm mục tiêu thúc đẩy, hỗ
+                                                                trợ và điều phối hoạt động tình nguyện vì sự phát triển ở Việt
+                                                                Nam. VVC Cung cấp đầy đủ thông tin về mọi hoạt động tình nguyện,
+                                                                tập huấn, hội thảo, hội nghị, diễn đàn thanh niên về các vấn đề
+                                                                xã hội trong nước và quốc tế. Là cầu nối giữa những tổ chức xã
+                                                                hội và những người đam mê tình nguyện.&nbsp;
+                                                            </p>
 
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptatem, ea, quisquam vero ullam nesciunt recusandae expedita similique nisi! Ducimus, reiciendis, quia. Explicabo minima error excepturi minus, aperiam illum fugit , quia. Explicabo minima error excepturi minus, aperiam illum fugit.
+                                                            <p>
+                                                                <u><strong>Về Dự án Sức mạnh 2000 - Ánh Sáng Núi
+                                                                        Rừng:</strong></u><br>
+                                                                Là một dự án gây quỹ xây trường được khởi xướng và điều hành bởi
+                                                                anh Hoàng Hoa Trung - Forbes 30 Under 30 2020, Gương mặt trẻ
+                                                                Việt Nam Tiêu biểu 2019. Tính tới tháng 2/2021, dự án đã xây
+                                                                dựng thành công gần 130 điểm trường, nhà nội trú, nhà hạnh phúc,
+                                                                cầu dân sinh ở các tỉnh vùng cao, giúp hơn 7000 trẻ em được đến
+                                                                trường. Tìm hiểu về dự án thêm tại: http://sucmanh2000.com
+                                                            </p>
 
-					</p>
-				</div> 
-                <div class="col-sm-4">
-                    <style>
-                        .btn-primary {
-                            background: #115c9b;
-                            border: none;
-                            border-radius: 0;
-                            padding: 10px 25px;
-                            border: 1px solid transparent;
-                            -moz-transition: all, 0.3s;
-                            -o-transition: all, 0.3s;
-                            -webkit-transition: all, 0.3s;
-                            transition: all, 0.3s;
-                        }
-                         
-                        .widget-donation {
-                            background: #fff;
-                            box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
-                            border: 1px solid #e0e0e0;
-                            border-radius: 10px;
-                            overflow: hidden;
-                            padding: 25px 30px;
-                            max-width: 100%;
-                            color: #757575;
-                        }
-                        .campaign-money {
-                            margin-bottom: 5px;
-                            position: relative;
-                            top: -4px;
-                        }
-                        .campaign-progress {
-                            display: flex;
-                            height: 7px;
-                            overflow: hidden;
-                            line-height: 0;
-                            font-size: .75rem;
-                            background-color: #e9ecef;
-                            border-radius: 100px;
-                        }
-                        .sm-gutters {
-                            /* margin-right: -8px;
-                            margin-left: -8px; */
-                        } 
-                        .widget-donation .sub {
-                            font-size: 15px;
-                            display: inline-block;
-                        }
-                        .text-gray-900 {
-                            color: #212121!important;
-                        }
-                        .widget-donation .value {
-                            font-size: 1.46667rem;
-                            font-weight: 700;
-                            font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
-                        }
-                        .campaign-progress-bar{
-                            float: left;
-                            width: 0;
-                            height: 100%;
-                            font-size: 12px;
-                            line-height: 20px;
-                            color: #fff;
-                            text-align: center;
-                            background-color: #337ab7;
-                            -webkit-box-shadow: inset 0 -1px 0 rgb(0 0 0 / 15%);
-                            box-shadow: inset 0 -1px 0 rgb(0 0 0 / 15%);
-                            -webkit-transition: width .6s ease;
-                            -o-transition: width .6s ease;
-                            transition: width .6s ease;
-                        }
-                        .justify-content-between {
-                            justify-content: space-between!important;
-                        }.row {
-                            display: flex;
-                            flex-wrap: wrap;
-                            margin-right: -13px;
-                            margin-left: -13px;
-                        }
-                        .mt-3, .my-3 {
-                            margin-top: 1rem!important;
-                        }
-                    </style> 
-                    <div class="theiaStickySidebar">
-                        <div class="quyengop-sticky">
-                            <div class="widget-donation pb-0 pb-lg-4">
-                                <h2 class="mb-4 text-gray-900 d-none d-md-block h4">Thông tin quyên góp</h2>
-                                <div class="campaign-money">
-                                    <strong class="value text-gray-900 fs-24">111 </strong>
-                                    quyên góp /
-                                    <div class="sub">
-                                            120000
-                                    </div>
-                                </div>  
-                                <div class="campaign-progress">
-                                    <div class="campaign-progress-bar" style="width:40%;"></div>
+                                                            <p>
+                                                                <u><strong>Về Dự án Nuôi Em
+                                                                        (http://nuoiem.com)&nbsp;</strong></u><br>
+                                                                Xuất phát điểm từ việc xây trường mà trẻ vẫn bỏ học vì thiếu ăn
+                                                                nên dự án đã tiến hành Nuôi Cơm vùng cao, cụ thể, mỗi bữa cơm là
+                                                                8500đ và dự án lo việc nấu đồ ăn (thông qua thầy cô) cơm thì bố
+                                                                mẹ các cháu nấu cho các cháu đem đi (một số địa phương đặc thù
+                                                                thì thầy cô giáo nấu cơm). Dự án này thực hiện từ 2014, tuy
+                                                                nhiên bùng nổ vào mùa 2018-2019 khi đưa ra mô hình Một Người -
+                                                                Nuôi Một Cháu. Với mỗi tháng 150,000đ - mỗi năm 1,350,000đ đặc
+                                                                thù là tính Cá Nhân Hóa (Mỗi người nuôi đều biết mặt mũi, thông
+                                                                tin, số điện thoại bố mẹ thầy cô già làng trưởng bản, hiệu
+                                                                trưởng, Phòng giáo dục và được lên thăm các cháu 3 lần/năm). Dự
+                                                                án này có tính lan tỏa cao và mang tính bền vững.
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <p>
+                                            <em>*MoMo biết rằng còn rất nhiều hoàn cảnh khó khăn trên khắp đất nước của chúng ta
+                                                cần được bảo trợ. Bạn hay các công ty hãy liên hệ với chúng tôi để cùng tài trợ,
+                                                giúp đỡ&nbsp; tạo nên một cộng đồng Việt Nam nhân ái nhé! <a
+                                                    href="mailto:donation@mservice.com.vn">donation@mservice.com.vn</a></em>
+                                        </p>
+
+                                    </article>
                                 </div>
-
-                                <div class="row sm-gutters justify-content-between widget-donation-meta mt-3">
-                                    <div class="col-auto">
-                                        <div class="">
-                                            Lượt quyên góp
-                                        </div>
-                                        <div class="text-gray-900 font-weight-bold">
-                                            42.263
-                                        </div>
+                                <div id="nhahaotam" class="ds-nhahaotam ng-scope" ng-if="ModelTrans.TotalItems>0">
+                                    <div class="donation__detail__heading has-border-top">
+                                        <h2 class="fw-600 m-0 h4">Nhà hảo tâm mới nhất</h2>
                                     </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-center">
-                                            Đạt được
-                                        </div>
-                                        <div class="text-gray-900 font-weight-bold text-center">
-                                            42.91%
-                                        </div>
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-right">
-                                            Thời hạn còn
-                                        </div>
-                                        <div class="text-gray-900 font-weight-bold">
-                                            34 Ng&#xE0;y
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="btn-holder text-center">
-
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
-                                    
-                                  </div>
-                            </div> 
-                        </div>
-                    </div> 
-                </div>
-
-			</div> <!-- /.row -->
-
-			<div class="section-home about-us">
-
-
-			            <div class="row">
-
-			                <div class="col-md-3 col-sm-6">
-			                
-			                  <div class="about-us-col">
-
-			                        <div class="col-icon-wrapper">
-			                          <img src="images/icons/our-mission-icon.png" alt="">
-			                        </div>
-			                        <h3 class="col-title">our mission</h3>
-			                        <div class="col-details">
-
-			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
-			                          
-			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
-			                    
-			                  </div>
-			                  
-			                </div>
-
-
-			                <div class="col-md-3 col-sm-6">
-			                
-			                  <div class="about-us-col">
-
-			                        <div class="col-icon-wrapper">
-			                          <img src="images/icons/make-donation-icon.png" alt="">
-			                        </div>
-			                        <h3 class="col-title">Make donations</h3>
-			                        <div class="col-details">
-
-			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
-			                          
-			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
-			                    
-			                  </div>
-			                  
-			                </div>
-
-
-			                <div class="col-md-3 col-sm-6">
-			                
-			                  <div class="about-us-col">
-
-			                        <div class="col-icon-wrapper">
-			                          <img src="images/icons/help-icon.png" alt="">
-			                        </div>
-			                        <h3 class="col-title">Help & support</h3>
-			                        <div class="col-details">
-
-			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
-			                          
-			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
-			                    
-			                  </div>
-			                  
-			                </div>
-
-
-			                <div class="col-md-3 col-sm-6">
-			                
-			                  <div class="about-us-col">
-
-			                        <div class="col-icon-wrapper">
-			                          <img src="images/icons/programs-icon.png" alt="">
-			                        </div>
-			                        <h3 class="col-title">our programs</h3>
-			                        <div class="col-details">
-
-			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
-			                          
-			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
-			                    
-			                  </div>
-			                  
-			                </div>
-			                
-
-			                
-			            </div> <!-- /.row -->
-
-			      
-			    </div> 
-
-		</div> <!-- /.about-us -->
-
-
-	    <div class="our-team animate-onscroll fadeIn">
-
-	        <div class="container">
-
-	            <h2 class="title-style-1">Our Team <span class="title-under"></span></h2>
-
-	            <div class="row">
-
-	                <div class="col-md-3 col-sm-6">
-
-	                    <div class="team-member">
-
-	                        <div class="thumnail">
-
-	                            <img src="images/team/member-1.jpg" alt="" class="cause-img">
-	                            
-	                        </div>
-
-
-
-	                        <h4 class="member-name"><a href="#">Robert C. Numbers</a></h4>
-
-	                        <div class="member-position">
-	                            CO-FOUNDER
-	                        </div>
-
-	                        <div class="btn-holder">
-
-	                          <a href="#" class="btn"> <i class="fa fa-envelope"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-facebook"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-google"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-twitter"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-linkedin"></i> </a>
-	                          
-	                        </div>
-
-	                        
-
-	                    </div> <!-- /.team-member -->
-	                    
-	                </div>
-
-	                <div class="col-md-3 col-sm-6">
-
-	                    <div class="team-member">
-
-	                        <div class="thumnail">
-
-	                            <img src="images/team/member-3.jpg" alt="" class="cause-img">
-	                            
-	                        </div>
-
-
-
-	                        <h4 class="member-name"><a href="#">Marjorie R. Echevarria</a></h4>
-
-	                        <div class="member-position">
-	                            CO-FOUNDER
-	                        </div>
-
-	                        <div class="btn-holder">
-
-	                          <a href="#" class="btn"> <i class="fa fa-envelope"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-facebook"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-google"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-twitter"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-linkedin"></i> </a>
-	                          
-	                        </div>
-
-	                        
-
-	                    </div> <!-- /.team-member -->
-	                    
-	                </div>
-
-
-	                <div class="col-md-3 col-sm-6">
-
-	                    <div class="team-member">
-
-	                        <div class="thumnail">
-
-	                            <img src="images/team/member-4.jpg" alt="" class="cause-img">
-	                            
-	                        </div>
-
-
-
-	                        <h4 class="member-name"><a href="#">Allison J. Falls</a></h4>
-
-	                        <div class="member-position">
-	                            CO-FOUNDER
-	                        </div>
-
-	                        <div class="btn-holder">
-
-	                          <a href="#" class="btn"> <i class="fa fa-envelope"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-facebook"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-google"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-twitter"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-linkedin"></i> </a>
-	                          
-	                        </div>
-
-	                        
-
-	                    </div> <!-- /.team-member -->
-	                    
-	                </div>
-
-
-	                <div class="col-md-3 col-sm-6">
-
-	                    <div class="team-member">
-
-	                        <div class="thumnail">
-
-	                            <img src="images/team/member-2.jpg" alt="" class="cause-img">
-	                            
-	                        </div>
-
-
-
-	                        <h4 class="member-name"><a href="#">Bryan B. Stevens</a></h4>
-
-	                        <div class="member-position">
-	                            CO-FOUNDER
-	                        </div>
-
-	                        <div class="btn-holder">
-
-	                          <a href="#" class="btn"> <i class="fa fa-envelope"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-facebook"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-google"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-twitter"></i> </a>
-	                          <a href="#" class="btn"> <i class="fa fa-linkedin"></i> </a>
-	                          
-	                        </div>
-
-	                        
-
-	                    </div> <!-- /.team-member -->
-	                    
-	                </div>
-
-	            </div> <!-- /.row -->
-
-	        </div>
-
-	    </div>
-		
-
-
-	</div>
-
-
-    <footer class="main-footer">
-
-        <div class="footer-top">
-            
-        </div>
-
-
-        <div class="footer-main">
-            <div class="container">
-                
-                <div class="row">
-                    <div class="col-md-4">
-
-                        <div class="footer-col">
-
-                            <h4 class="footer-title">About us <span class="title-under"></span></h4>
-
-                            <div class="footer-content">
-                                <p>
-                                    <strong>Sadaka</strong> ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </p> 
-
-                                <p>
-                                    ILorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                                </p>
-
-                            </div>
-                            
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-4">
-
-                        <div class="footer-col">
-
-                            <h4 class="footer-title">LAST TWEETS <span class="title-under"></span></h4>
-
-                            <div class="footer-content">
-                                <ul class="tweets list-unstyled">
-                                    <li class="tweet"> 
-
-                                        20 Surprise Eggs, Kinder Surprise Cars 2 Thomas Spongebob Disney Pixar  http://t.co/fTSazikPd4 
-
-                                    </li>
-
-                                    <li class="tweet"> 
-
-                                        20 Surprise Eggs, Kinder Surprise Cars 2 Thomas Spongebob Disney Pixar  http://t.co/fTSazikPd4 
-
-                                    </li>
-
-                                    <li class="tweet"> 
-
-                                        20 Surprise Eggs, Kinder Surprise Cars 2 Thomas Spongebob Disney Pixar  http://t.co/fTSazikPd4 
-
-                                    </li>
-
-                                </ul>
-                            </div>
-                            
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <div class="footer-col">
-
-                            <h4 class="footer-title">Contact us <span class="title-under"></span></h4>
-
-                            <div class="footer-content">
-
-                                <div class="footer-form" >
-                                    
-                                    <form action="php/mail.php" class="ajax-form">
-
-                                        <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Name" required>
-                                        </div>
-
-                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="E-mail" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <textarea name="message" class="form-control" placeholder="Message" required></textarea>
-                                        </div>
-
-                                        <div class="form-group alerts">
-                        
-                                            <div class="alert alert-success" role="alert">
-                                              
-                                            </div>
-
-                                            <div class="alert alert-danger" role="alert">
-                                              
-                                            </div>
+                                    <div class="border rounded px-3 py-0">
+                                        <div class="campaign-people-list">
+                                            <!-- ngRepeat: item in ModelTrans.Items|limitTo:10 -->
+                                            <div class="campaign-people-item ng-scope"
+                                                ng-repeat="item in ModelTrans.Items|limitTo:10">
+                                                <!-- ngIf: !item.isAnonymous -->
+                                                <div class="campaign-people-avatar ng-binding ng-scope"
+                                                    ng-if="!item.isAnonymous" ng-bind="item.sortCusName">AT</div>
+                                                <!-- end ngIf: !item.isAnonymous -->
+                                                <!-- ngIf: item.isAnonymous -->
+
+                                                <div class="campaign-people-info">
+                                                    <div class="campaign-people-name ng-binding" ng-bind="item.cusName">NGUYEN
+                                                        THI ANH THU</div>
+                                                    <div class="campaign-people-phone ng-binding" ng-bind="item.phoneNumber">
+                                                        *******130</div>
+                                                </div>
+
+                                                <div class="campaign-people-money">
+                                                    <text class="ng-binding">1.000</text>
+                                                    <!-- ngIf: item.medalType!='cb_donation_heovang' --><text
+                                                        ng-if="item.medalType!='cb_donation_heovang'" class="ng-scope">đ</text>
+                                                    <!-- end ngIf: item.medalType!='cb_donation_heovang' -->
+                                                    <!-- ngIf: item.medalType=='cb_donation_heovang' -->
+                                                </div>
+                                            </div><!-- end ngRepeat: item in ModelTrans.Items|limitTo:10 -->
                                             
                                         </div>
+                                    </div>
 
-                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-submit pull-right">Send message</button>
+                                    <div class="mt-3" ng-show="ModelTrans.TotalItems>ModelTrans.Items.length">
+
+                                        <a href="javascript:void(0)" ng-class="{'btnLoading':ModelTransMore.IsLoading}"
+                                            ng-click="ShowTrans('modal-donation-trans')"
+                                            class="btn btn-outline-dark font-weight-bold">
+                                            Xem tất cả
+                                        </a>
+                                    </div>
+                                </div><!-- end ngIf: ModelTrans.TotalItems>0 -->
+                                <div class="col-12 col-lg-5 order-1 order-lg-2 sticky-sidebar"
+                                    style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+                                    <div class="theiaStickySidebar"
+                                        style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+                                        <div class="quyengop-sticky">
+                                            <div class="widget-donation pb-0 pb-lg-4">
+                                                <h2 class="mb-4 text-gray-900 d-none d-md-block h4">Thông tin quyên góp</h2>
+                                                <div class="campaign-money">
+                                                    <strong class="value text-gray-900 fs-24">35.784.160đ </strong>
+                                                    quyên góp /
+                                                    <div class="sub">
+                                                        120.000.000đ
+                                                    </div>
+                                                </div>
+
+                                                <div class="campaign-progress">
+                                                    <div class="campaign-progress-bar" style="width:29.82%"></div>
+                                                </div>
+
+                                                <div class="row sm-gutters justify-content-between widget-donation-meta mt-3">
+                                                    <div class="col-auto">
+                                                        <div class="">
+                                                            Lượt quyên góp
+                                                        </div>
+                                                        <div class="text-gray-900 font-weight-bold">
+                                                            9.784
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <div class="text-center">
+                                                            Đạt được
+                                                        </div>
+                                                        <div class="text-gray-900 font-weight-bold text-center">
+                                                            29.82%
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <div class="">
+                                                            Thời hạn còn
+                                                        </div>
+                                                        <div class="text-gray-900 font-weight-bold">
+                                                            32 Ngày
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row align-items-end no-gutters mt-3 mt-md-3">
+                                                    <div class="col">
+                                                        <div class="campaign-cta">
+                                                            <div class="my-2">
+                                                                <a class="btn btn-block btn-primary-3 font-weight-bold cta-donation-1 d-md-block d-none"
+                                                                    data-qrcode-id="105" data-target="#qrcode-modal-105"
+                                                                    data-toggle="modal" href="javascript:void(0)" target="_blank">
+                                                                    Quyên góp </a>
+                                                                <a class="btn btn-block btn-primary-3 font-weight-bold cta-donation-1 d-md-none d-block"
+                                                                    href="https://momoapp.page.link/tR67Hm2waPnaGWmF8" target="_blank">
+                                                                    Quyên góp </a>
+                                                            </div>
+
+                                                            <div class="my-2 d-none d-lg-block">
+                                                                <a class="btn btn-block btn-outline-dark font-weight-bold cta-donation-2"
+                                                                    data-target="#modal-huongdan-1423" data-toggle="modal"
+                                                                    href="javascript:void(0)">
+                                                                    Hướng dẫn Quyên góp
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="widget-sponser">
+                                                    <div class="text-gray-800 mb-1 font-weight-bold">Đồng hành cùng dự án</div>
+                                                    <div class="row align-items-center no-gutters">
+                                                        <div class="col-auto sponser-logo">
+                                                            <img src="https://static.mservice.io/blogscontents/momo-upload-api-210531141912-637580675529814052.png"
+                                                                loading="lazy" class="img-fluid" alt="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <strong>Trung tâm tình nguyện quốc gia</strong><br>
+                                                            <i class="text-small">Sức mạnh 2000</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="pb-3 d-none d-lg-block">
+                                                <div class="pb-3 d-none d-lg-block">
+                                                    <h4 class="mt-5 mb-3">Chương trình đang diễn ra</h4>
+                                                    <div class="mb-3">
+                                                        <div class="campaign-dn">
+                                                            <a href="/cong-dong/cung-gay-quy-tang-do-bao-ho-chong-dich-covid19-cho-nguoi-dan-va-can-bo-y-te-huyen-nam-po"
+                                                                class="link-absolute"></a>
+                                                            <div class="campaign-dn-img">
+                                                                <img src="https://static.mservice.io/blogscontents/momo-upload-api-210531105401-637580552413899986.jpg"
+                                                                    alt="Cùng gây quỹ tặng đồ bảo hộ chống dịch Covid-19 cho người dân và cán bộ y tế huyện Nậm Pồ"
+                                                                    loading="lazy">
+                                                            </div>
+                                                            <div class="campaign-dn-body">
+                                                                <h5 class="campaign-dn-title">
+                                                                    Cùng gây quỹ tặng đồ bảo hộ chống dịch Covid-19 cho người dân và cán
+                                                                    bộ y tế huyện Nậm Pồ
+                                                                </h5>
+                                                                <p class="campaign-dn-summary">
+                                                                    Cùng chung tay quyên góp để hỗ trợ đội ngũ cán bộ y bác sĩ và người
+                                                                    dân huyện Nậm Pồ, tỉnh Điện Biên đẩy lùi dịch Covid-19 đang có diễn
+                                                                    biến ô cùng phức tạp.
+                                                                </p>
+                                                            </div>
+                                                            <div class="campaign-dn-footer">
+                                                                <div class="campaign-dn-info">
+                                                                    <div class="campaign-dn-money">
+                                                                        <b>40.001.010đ</b>
+                                                                        <span>quyên góp</span>
+                                                                    </div>
+                                                                    <div class="campaign-dn-percent">100.00%</div>
+                                                                </div>
+
+                                                                <div class="campaign-progress">
+                                                                    <div class="campaign-progress-bar done" style="width: 100.00%;">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="campaign-dn-time"
+                                                                    style="color: #28a745!important;font-weight: bold;">
+                                                                    <div>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round" class="feather feather-users ico">
+                                                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                                            <circle cx="9" cy="7" r="4"></circle>
+                                                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                                        </svg>
+                                                                        <span>7.715 lượt quyên góp</span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                            stroke-width="2" stroke-linecap="round"
+                                                                            stroke-linejoin="round" class="feather feather-clock ico">
+                                                                            <circle cx="12" cy="12" r="10"></circle>
+                                                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                                                        </svg>
+                                                                        <span>Đã đạt mục tiêu</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        
-                                    </form>
-
+                                        <div class="resize-sensor"
+                                            style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+                                            <div class="resize-sensor-expand"
+                                                style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                                                <div
+                                                    style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 750px; height: 422px;">
+                                                </div>
+                                            </div>
+                                            <div class="resize-sensor-shrink"
+                                                style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                                                <div
+                                                    style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
                             </div>
-                            
                         </div>
-
                     </div>
-                    <div class="clearfix"></div>
-
-
-
                 </div>
-                
-                
-            </div>
-
-            
-        </div>
-
-        <div class="footer-bottom">
-
-            <div class="container text-right">
-                Sadaka @ copyrights 2015 - by <a href="http://www.ouarmedia.com" target="_blank">Ouarmedia</a>
-            </div>
-        </div>
+            </section>
         
+    </div>
+    <footer class="main-footer">
+        <%- include("../Util/footer.ejs") %>
     </footer>
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Bootsrap javascript file -->
+    <script src="frontend/js/bootstrap.min.js"></script>
 
 
+    <!-- Template main javascript -->
+    <script src="frontend/js/main.js"></script>
 
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+                    function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+                e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
+    </script>
+</body>
 
-       
-        
-        <!-- jQuery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
-
-        <!-- Bootsrap javascript file -->
-        <script src="js/bootstrap.min.js"></script>
-
-
-        <!-- Template main javascript -->
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    </body>
 </html>

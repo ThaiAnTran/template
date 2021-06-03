@@ -12,7 +12,7 @@
 
         <!-- Bootsrap -->
         <link rel="stylesheet" href="frontend/css/bootstrap.min.css">
-
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
         <!-- Font awesome -->
         <link rel="stylesheet" href="frontend/css/font-awesome.min.css">
 
@@ -23,8 +23,8 @@
         <link rel="stylesheet" href="frontend/css/style.css">
         
         <!-- Modernizr -->
-        <script src="frontend/js/modernizr-2.6.2.min.js"></script>
-        <script src="frontend/js/simple.money.format.min.js"></script>
+        <script src="frontend/js/modernizr-2.6.2.min.js"></script> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
 
     <body>
@@ -46,12 +46,12 @@
             margin-top: 1rem!important;
         }
         .text-gray-900 {
-          color: #212121!important;
+          color: #970a0a!important;
 
         }
         .campaign-money {
             margin-bottom: 5px;
-            margin-left: 100px;
+            margin-left: 50px;
             position: relative;
             top: -4px;
         }.widget-donation .sub {
@@ -181,11 +181,11 @@
 
                     <div class="cause">
 
-                        <img style="width: 356px; height: 292px;" src="images/supported_object/<%= post[i].Image%>" alt="" class="cause-img">
+                        <img style=" height: 292px;" src="images/supported_object/<%= post[i].Image%>" alt="" class="cause-img">
 
                         <div class="progress cause-progress">
                            <% let pt= (post[i].sumAmount/post[i].Total_Amount)*100; const p = Number(pt) %>
-                          <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"  style="color:black ;width:<%= p%>%;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"  style='color:rgb(0, 0, 0) ;width:<%=p %>% ;'>
                             
                             <%= p.toFixed(2) %>% 
                           </div> 
@@ -196,12 +196,13 @@
                                 <%= post[i].sumMoney %>
                               <%} else{ %>
                                   <%= 0 %>
-                              <% }%> 
-                            </strong>  /  <%= post[i].Total_money %> .VNĐ
+                              <% }%> .VNĐ
+                            </strong>  / 
+                            <strong>  <%= post[i].Total_money %> .VNĐ</strong> 
                               
                         </div>
-
-                        <h4 class="cause-title"><a href="#"><%= post[i].Title%> </a></h4>
+                        
+                        <h4 class="cause-title"><a href="/xemchitietPost?idPost=<%= post[i].IdPost%>"><%= post[i].Title%> </a></h4>
                         <!-- <div class="cause-details">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
                         </div> -->
@@ -214,22 +215,17 @@
                         <div class="row sm-gutters justify-content-between widget-donation-meta mt-3">
                           <div class="col-auto">
                               <div class="">
-                                  Lượt quyên góp
+                                  Lượt Thích
                               </div>
                               <div class="text-gray-900 font-weight-bold">
-                                  42.263
+                                <a id="tym<%= post[i].IdPost%>"  data-toggle="tooltip" title="Love" onclick="clickLike('<%= post[i].IdPost%>')">
+                                    <i class="fa fa-heart-o" aria-hidden="true">
+                                      <%= post[i].LikePost%>
+                                  </i>
+                                </a>
                               </div>
-                          </div>
-
-                          <div class="col-auto">
-                              <div class="text-center">
-                                  Đạt được
-                              </div>
-                              <div class="text-gray-900 font-weight-bold text-center">
-                                  42.91%
-                              </div>
-                          </div>
-
+                             
+                          </div>  
                           <div class="col-auto">
                               <div class="text-right">
                                   Thời hạn còn
@@ -409,6 +405,31 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+      });
 
+      function clickLike(id){
+        let thatym = document.getElementById(`tym${id}`);
+          $.ajax({
+            method: 'GET',
+            url:'/xulylike',
+            data:{
+              idpost: id
+            },
+            success: function(data){
+              //tang diem like len
+              thatym.innerHTML=`<i class="fa fa-heart"></i>
+                                <lable>${data+1}</lable>`;
+            },
+
+            error: function(){
+
+            }
+          })
+      }
+      </script>
     </body>
 </html>
+<!-- <i class="fas fa-heart"></i> -->

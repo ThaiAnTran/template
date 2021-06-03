@@ -17,9 +17,6 @@ route.use(express.urlencoded({
 /////////////////////////////////////////////           Go to View              //////////////////////////////////////////////////////////
 /// index
 route.get("/",(req,res)=>{
-    res.render("User/index.ejs");
-})
-route.get("/index",(req,res)=>{
   let today = new Date();
   var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
   let sql =`SELECT post.IdPost
@@ -45,6 +42,36 @@ route.get("/index",(req,res)=>{
     else{ 
       let post = result;
       
+      return res.render("User/index.ejs",{
+            post: result
+          });
+         
+      } 
+      
+    
+  })
+})
+route.get("/index",(req,res)=>{
+  let today = new Date();
+  var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+  let sql =`SELECT post.IdPost
+                    , DATEDIFF( DATE_FORMAT(post.EndDate, '%Y/%m/%d'), '${date}' ) AS 'songay' 
+                    , post.Title
+                    , post.Status 
+                    , post.Image 
+                    , post.Total_Amount
+                    , FORMAT(post.Total_Amount, 0) AS 'Total_money' 
+                    , post.LikePost 
+                    , post.IdSO 
+                    , FORMAT((SELECT SUM(donater.Amount) FROM donater WHERE donater.IdPost=post.IdPost),0)as sumMoney
+                    , (SELECT SUM(donater.Amount) FROM donater WHERE donater.IdPost=post.IdPost) as sumAmount
+                    from post   where Status=1`;
+  conn.query(sql,(err,result)=>{
+    if(err)
+    {
+       console.log(err);
+    }
+    else{ 
       return res.render("User/index.ejs",{
             post: result
           });
@@ -88,7 +115,33 @@ route.get("/login",(req,res)=>{
 })
 // xem chi tiết bài viết:
 route.get("/xemchitietPost",(req,res)=>{
-  res.render("User/Post/chitietPost.ejs");
+  let idpost = req.query.idPost;
+  let today = new Date();
+  var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+  let sql_chitiet= `SELECT post.IdPost
+                          , DATE_FORMAT(post.CreateDate, '%Y-%m-%d %H:%m:%s') AS 'CreateDate'
+                          , DATEDIFF( DATE_FORMAT(post.EndDate, '%Y/%m/%d'), '${date}' ) AS 'songay' 
+                          , post.Title
+                          , post.Content 
+                          , post.Status 
+                          , post.Image 
+                          , post.Total_Amount
+                          , FORMAT(post.Total_Amount, 0) AS 'Total_money' 
+                          , post.LikePost 
+                          , post.IdSO 
+                          , post.IdEmployee
+                          , FORMAT((SELECT SUM(donater.Amount) FROM donater WHERE donater.IdPost=post.IdPost),0)as sumMoney
+                          , (SELECT SUM(donater.Amount) FROM donater WHERE donater.IdPost=post.IdPost) as sumAmount
+                          from post  where IdPost='${idpost}' `;
+  conn.query(sql_chitiet,(err,result)=>{
+    if(err) console.log(err);
+    if(result.length!=0){
+      return res.render("User/Post/chitietPost.ejs",{
+        chitietPost: result
+      });
+
+    }
+  })
 })
 //////////////////////////////////////// //                XỬ LÝ                  //////////////////////////////////////////////////////////
 // đăng ký:
@@ -144,7 +197,26 @@ route.post("/xulyDangNhap",(req,res)=>{
     return res.redirect("/index");
   })
 })
+// xu ly LIKE
+route.get("/xulylike",(req,res)=>{
+  let idpost = req.query.idpost;
 
+  let sql = `Select post.LikePost from post where IdPost='${idpost}'`;
+  conn.query(sql,(err,result)=>{
+    if(err) console.log(err);
+    if(result.length!=0){
+      let like = result[0].LikePost+1;
+      let likeold= result[0].LikePost;
+      
+      let sql_upLike = `Update post Set LikePost='${like}' where IdPost=${idpost}`;
+      conn.query(sql_upLike,(err,result)=>{
+        if(err) console.log(err);
+        
+        return res.json(likeold)
+      })
+    }
+  })
+})
 
 route.get("/test",(req,res)=>{
   let today = new Date();
